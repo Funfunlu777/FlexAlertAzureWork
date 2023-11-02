@@ -1,0 +1,21 @@
+{
+	"name": "ParquetEOSWeather",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "EOSWeather.parquet",
+				"folderPath": "Raw/EOS/Parquet",
+				"fileSystem": "datasourcefilesystem001"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
