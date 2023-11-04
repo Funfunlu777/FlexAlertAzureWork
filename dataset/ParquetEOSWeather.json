@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "EOSWeather.parquet",
+				"fileName": "EOSWeatherSummerland.parquet",
 				"folderPath": "Raw/EOS/Parquet",
 				"fileSystem": "datasourcefilesystem001"
 			},
