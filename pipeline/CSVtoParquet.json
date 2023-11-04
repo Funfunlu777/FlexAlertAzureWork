@@ -59,8 +59,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Data type",
-									"type": "String",
+									"name": "Datatype",
 									"physicalType": "UTF8"
 								}
 							},
@@ -83,8 +82,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Max Temperature",
-									"type": "String",
+									"name": "MaxTemperature",
 									"physicalType": "UTF8"
 								}
 							},
@@ -95,8 +93,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Min Temperature",
-									"type": "String",
+									"name": "MinTemperature",
 									"physicalType": "UTF8"
 								}
 							},
