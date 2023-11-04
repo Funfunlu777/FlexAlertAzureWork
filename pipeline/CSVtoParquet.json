@@ -65,18 +65,6 @@
 							},
 							{
 								"source": {
-									"name": "NDVI",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "NDVI",
-									"type": "String",
-									"physicalType": "UTF8"
-								}
-							},
-							{
-								"source": {
 									"name": "Max Temperature",
 									"type": "Double",
 									"physicalType": "String"
@@ -99,54 +87,6 @@
 							},
 							{
 								"source": {
-									"name": "Surface Soil Moisture",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Surface Soil Moisture",
-									"type": "String",
-									"physicalType": "UTF8"
-								}
-							},
-							{
-								"source": {
-									"name": "Rootzone Soil Moisture",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Rootzone Soil Moisture",
-									"type": "String",
-									"physicalType": "UTF8"
-								}
-							},
-							{
-								"source": {
-									"name": "Wind Speed",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Wind Speed",
-									"type": "String",
-									"physicalType": "UTF8"
-								}
-							},
-							{
-								"source": {
-									"name": "Humidity",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Humidity",
-									"type": "String",
-									"physicalType": "UTF8"
-								}
-							},
-							{
-								"source": {
 									"name": "Precipitation",
 									"type": "Double",
 									"physicalType": "String"
@@ -160,24 +100,22 @@
 							{
 								"source": {
 									"name": "Heat Stress",
-									"type": "String",
+									"type": "Int32",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Heat Stress",
-									"type": "String",
+									"name": "HeatStress",
 									"physicalType": "UTF8"
 								}
 							},
 							{
 								"source": {
 									"name": "Cold Stress",
-									"type": "String",
+									"type": "Int32",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Cold Stress",
-									"type": "String",
+									"name": "ColdStress",
 									"physicalType": "UTF8"
 								}
 							}
