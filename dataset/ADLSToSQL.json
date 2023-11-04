@@ -1,0 +1,12 @@
+{
+	"name": "ADLSToSQL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FAAzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
