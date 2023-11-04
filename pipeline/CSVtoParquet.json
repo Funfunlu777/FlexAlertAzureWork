@@ -54,24 +54,72 @@
 							},
 							{
 								"source": {
-									"name": "Max Deg",
-									"type": "Double",
+									"name": "Data type",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Max Deg",
+									"name": "Data type",
 									"type": "String",
 									"physicalType": "UTF8"
 								}
 							},
 							{
 								"source": {
-									"name": "Min Deg",
+									"name": "NDVI",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NDVI",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Max Temperature",
 									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Min Deg",
+									"name": "Max Temperature",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Min Temperature",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Min Temperature",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Surface Soil Moisture",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Surface Soil Moisture",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Rootzone Soil Moisture",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Rootzone Soil Moisture",
 									"type": "String",
 									"physicalType": "UTF8"
 								}
@@ -79,7 +127,7 @@
 							{
 								"source": {
 									"name": "Wind Speed",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -91,7 +139,7 @@
 							{
 								"source": {
 									"name": "Humidity",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -102,12 +150,36 @@
 							},
 							{
 								"source": {
-									"name": "Precipitation ",
+									"name": "Precipitation",
 									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Precipitation ",
+									"name": "Precipitation",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Heat Stress",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Heat Stress",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Cold Stress",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cold Stress",
 									"type": "String",
 									"physicalType": "UTF8"
 								}
