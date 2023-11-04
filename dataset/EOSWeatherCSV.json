@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "summerland_estate winery.csv",
+				"fileName": "summerland_estate wineryTest.csv",
 				"folderPath": "Raw/EOS",
 				"fileSystem": "datasourcefilesystem001"
 			},
