@@ -1,0 +1,22 @@
+{
+	"name": "FALakeDB",
+	"properties": {
+		"Name": "FALakeDB",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://datasourcefilesystem001@datasourceaccount001.dfs.core.windows.net/FALakeDB",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "synapseworkspacemodelling-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
