@@ -1,0 +1,24 @@
+{
+	"name": "SummerlandSourceData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLSDataSourceRaw",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "summerland.csv",
+				"folderPath": "Raw/EOS",
+				"fileSystem": "datasourcefilesystem001"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
