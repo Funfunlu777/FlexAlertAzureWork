@@ -1,0 +1,17 @@
+{
+	"name": "EOS_Summerland",
+	"properties": {
+		"content": {
+			"query": "-- CREATE VIEW [dbo].[View]\n-- \tAS SELECT * FROM [SomeTableOrView]\n\n\n\nwith cleansed as (\nSELECT \nYEAR(Raw.Date) as Year,\nMONTH(Raw.Date) as Month,\nDAY(Raw.Date) as Day,\nround((Raw.MaxTemp + Raw.MinTemp)/2,2) as AvgTemp,\nCASE WHEN MONTH(Raw.Date) in (4,5,6,7,8,9,10) THEN 1 ELSE 0 END AS IsGrowingSeason,\nCASE WHEN (MONTH(Raw.Date) in (4,5,6,7,8,9,10)) AND ((Raw.MaxTemp + Raw.MinTemp)/2 >= 3) \nTHEN round((Raw.MaxTemp + Raw.MinTemp)/2,2) -3 ELSE 0 END AS GDD3,\nCASE WHEN (MONTH(Raw.Date) in (4,5,6,7,8,9,10)) AND ((Raw.MaxTemp + Raw.MinTemp)/2 >= 10) \nTHEN round((Raw.MaxTemp + Raw.MinTemp)/2,2) -10 ELSE 0 END AS GDD10,\nRaw.*\n\nFROM( \nSELECT \ncast(SL.Date as datetime) as Date,\ncast(SL.MaxDeg as decimal(6,2)) as MaxTemp,\ncast(SL.MinDeg as decimal(6,2)) as MinTemp,\nSL.SurfaceSoilMoisture  as SurfaceSoilMoisture,\nSL.RootzoneSoilMoisture as RootzoneSoilMoisture,\ncast(SL.WindSpeed as decimal(6,2)) as WindSpeed,\ncast(SL.Humidity as decimal(6,2)) as Humidity,\ncast(SL.Precipitation as decimal(6,2)) as Precipitation,\ncast(SL.HeatStress as decimal(6,2)) as HeatStress,\ncast(SL.ColdStress as decimal(6,2)) as ColdStress,\n'SummerlandEasteVineyard' as location\n\nFROM \nOPENROWSET(\nBULK 'https://datasourceaccount001.dfs.core.windows.net/datasourcefilesystem001/DataSource/EOS/WeatherData/*.csv',\nFORMAT = 'CSV',\nPARSER_VERSION = '2.0',\nHEADER_ROW = TRUE\n) as SL)as Raw\n),\nCUMData as(\nSELECT \nT1.Date,\nT1.LOCATION,\nsum(T2.GDD10) as CUMGDD10, \nsum(T2.GDD3) as CUMGDD3\nFROM Cleansed T1\nINNER JOIN Cleansed T2 ON T1.Location = T2.Location AND T1.Date >= T2.Date\nGROUP BY T1.Date, T1.LOCATION\n)\n\nSELECT \nCD.*,\nCA.*,\nCASE WHEN CA.CUMGDD10 <= 20 THEN 'OffSeason'\n    WHEN CA.CUMGDD10 > 20 AND CA.CUMGDD10 <= 254 THEN 'BudBreak'\n\tWHEN CA.CUMGDD10 > 254 AND CA.CUMGDD10 <= 680 THEN 'Flowering'\n\tWHEN CA.CUMGDD10 > 680 AND CA.CUMGDD10 <= 1000 THEN 'Berrying'\n\tWHEN CA.CUMGDD10 > 1000 AND CD.Month <= 10 THEN 'Havesting'\n\tELSE 'OffSeason' END AS GrowthStage,\nCASE WHEN CD.IsGrowingSeason = 1 THEN ROUND(1.0755* POWER((1+(EXP(-0.0042*CA.CUMGDD3))), (1/(1-1.0169))),4) ELSE 0 END AS Pmaxacc\n\nFROM Cleansed CD\nLEFT JOIN CUMData CA ON CD.Date = CA.Date AND CD.Location = CA.Location\nORDER BY CD.Date, CD.LOCATION",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "FA_ServerlessDatabase001",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
