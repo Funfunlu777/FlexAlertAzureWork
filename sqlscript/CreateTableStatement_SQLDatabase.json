@@ -1,0 +1,17 @@
+{
+	"name": "CreateTableStatement_SQLDatabase",
+	"properties": {
+		"content": {
+			"query": "CREATE EXTERNAL TABLE [dbo].[EOSWeatherCleansed]\n(\n\tDate\tdatetime2(7),\n\t Year\tint,\n\t Month\tint,\n\t Day    int,\n\t LOCATION\tnvarchar(200),\t\n\t MaxTemp\tDECIMAL(6,2),\n\t MinTemp\tDECIMAL(6,2),\n\t AvgTemp\tDECIMAL(6,2),\n\t GDD3\tDECIMAL(6,2),\n\t GDD10\tDECIMAL(6,2),\n\t CUMGDD3\tDECIMAL(6,2),\n\t CUMGDD10\tDECIMAL(6,2),\n\t IsGrowingSeason\tFLOAT,\n\t SurfaceSoilMoisture nvarchar(100),\t\n\t RootzoneSoilMoisture\tnvarchar(100),\t\n\t WindSpeed\tDECIMAL(6,2),\n\t Humidity\tDECIMAL(6,2),\n\t Precipitation\tDECIMAL(6,2),\n\t HeatStress\tint,\n\t ColdStress\tint,\n\t GrowthStage nvarchar(100),\t\n\t Pmaxacc DECIMAL(6,2)\n)\n-- WITH(\n--  DISTRIBUTION = REPLICATE,\n--  CLUSTERED COLUMNSTORE INDEX\n-- )\nWITH\n(\n\tLOCATION = 'datasourcefilesystem001/Cleansed/EOS/',\n\tDATA_SOURCE = [datasourcefilesystem001_datasourceaccount001_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseParquetFormat]\n)\n\n-- SELECT TOP 100 * FROM dbo.EOSWeatherCleansed\n-- GO\n\n-- EOSWeatherCleansed.parquet\n-- DROP EXTERNAL TABLE dbo.EOSWeatherCleansed",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "FADB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
