@@ -1,0 +1,234 @@
+{
+	"name": "EOSWeather",
+	"properties": {
+		"activities": [
+			{
+				"name": "TransformRawFile",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Date",
+									"type": "Date",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Date",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Datatype",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Datatype",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Index",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Index",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "MaxDeg",
+									"type": "Decimal",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MaxDeg",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "MinDeg",
+									"type": "Decimal",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MinDeg",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "SurfaceSoilMoisture",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "SurfaceSoilMoisture",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "RootzoneSoilMoisture",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RootzoneSoilMoisture",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "WindSpeed",
+									"type": "Decimal",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "WindSpeed",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Humidity",
+									"type": "Decimal",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Humidity",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Precipitation",
+									"type": "Decimal",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Precipitation",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Evapotranspiration",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Evapotranspiration",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "GlobalRadiation",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "GlobalRadiation",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "HeatStress",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "HeatStress",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "ColdStress",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ColdStress",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "CsvParquet2024",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ADLSParquest2024",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

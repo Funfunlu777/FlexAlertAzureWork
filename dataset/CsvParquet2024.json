@@ -1,0 +1,81 @@
+{
+	"name": "CsvParquet2024",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage2024",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "summerland_estate winery_historical_data_2023.csv",
+				"folderPath": "DataSource/EOS/Weather/raw",
+				"fileSystem": "datasourcefilesystem001"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "Datatype",
+				"type": "String"
+			},
+			{
+				"name": "Index",
+				"type": "String"
+			},
+			{
+				"name": "MaxDeg",
+				"type": "String"
+			},
+			{
+				"name": "MinDeg",
+				"type": "String"
+			},
+			{
+				"name": "SurfaceSoilMoisture",
+				"type": "String"
+			},
+			{
+				"name": "RootzoneSoilMoisture",
+				"type": "String"
+			},
+			{
+				"name": "WindSpeed",
+				"type": "String"
+			},
+			{
+				"name": "Humidity",
+				"type": "String"
+			},
+			{
+				"name": "Precipitation",
+				"type": "String"
+			},
+			{
+				"name": "Evapotranspiration",
+				"type": "String"
+			},
+			{
+				"name": "GlobalRadiation",
+				"type": "String"
+			},
+			{
+				"name": "HeatStress",
+				"type": "String"
+			},
+			{
+				"name": "ColdStress",
+				"type": "String"
+			}
+		]
+	}
+}
