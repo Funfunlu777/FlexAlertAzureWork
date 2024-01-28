@@ -1,0 +1,21 @@
+{
+	"name": "ADLSParquest2024",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage2024",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "weather.parquet",
+				"folderPath": "DataSource/EOS/Weather/parquet",
+				"fileSystem": "datasourcefilesystem001"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
